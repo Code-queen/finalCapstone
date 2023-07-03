@@ -1,0 +1,33 @@
+import math
+print("investment - to calculate the amount of interest you'll earn on your investment")
+print("bond - to calculate the amount you'll have to pay on a home loan")
+choice = input(str("Enter either 'investment' or 'bond' from the menu above to proceed:
+")).lower()
+#code for user choosing investment
+if choice == "investment":
+    P = int(input("How much money do you wish to deposit?: "))
+    r = int(input("Enter the interet rate (only the number needs to be entered): "))
+    r = (r/100)
+    t = int(input("How many years would you like to invest for?: "))
+    interest = str(input("Choose if you would prefer 'simple' or 'compound' interest: ")).lower()
+    if interest == "simple":
+        total = P*(1+r*t)
+        print("Your total after", t, "years is: ", total)
+    elif interest == "compound":
+        total = P*math.pow((1+r),t)
+        print("Your total after", t, "years is: ", total)
+#code for user choosing bond
+elif choice == "bond":
+    P = int(input("Enter the present value of the house: "))
+    i = int(input("Enter the annual interest rate (only the number needs to be entered): "))
+    i = (i/100)/12
+    n = int(input("How many months do you plan to take to repay the bond?: "))
+    repayment = (i*P)/(1-(1+i)**(-n))
+    print("You will have to repay £", repayment, "each month")
+else:
+    print("Input is invalid. Please try again.")
+
+
+
+
+
